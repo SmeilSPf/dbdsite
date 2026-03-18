@@ -12,33 +12,47 @@ body {
     font-family: Arial;
     text-align: center;
 
-    /* ФОН */
     background-image: url("bg.webp");
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
 
-    /* нельзя копировать текст */
     user-select: none;
 }
 
-/* затемнение фона */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.4);
     z-index: -1;
 }
 
+/* ВКЛАДКИ */
+.tabs {
+    margin: 20px;
+}
+
+.tabs button {
+    background: #222;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.tabs button:hover {
+    background: #444;
+}
 
 .gallery {
     display: grid;
     grid-template-columns: repeat(5, 140px);
-
-    justify-content: center;   /* центр по горизонтали */
-    justify-items: center;     /* центр внутри ячеек */
-
+    justify-content: center;
+    justify-items: center;
     gap: 15px;
 }
 
@@ -64,14 +78,10 @@ img {
     font-size: 18px;
 }
 
-
-/* ОКНО С ИНФОЙ */
-
 .modal {
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.9);
-
     display: none;
     justify-content: center;
     align-items: center;
@@ -102,169 +112,126 @@ img {
 
 <h1>Те кого стоит знать</h1>
 
+<!-- КНОПКИ -->
+<div class="tabs">
+    <button onclick="showTab('killers')">Маны</button>
+    <button onclick="showTab('survivors')">Живые</button>
+</div>
 
-<div class="gallery">
+<!-- МАНЫ -->
+<div class="gallery" id="killers">
 
-<div class="card"
-onclick="openChar(
-'images/bybba.webp',
-'Буббаслав',
-'Славный малый'
-)">
+<div class="card" onclick="openChar('images/bybba.webp','Буббаслав','Славный малый')">
 <img src="images/bybba.webp">
 <div class="name">Буббаслав</div>
 </div>
 
-<div class="card"
-onclick="openChar(
-'images/spina.webp',
-'Спина',
-'Спина на дрожжах'
-)">
+<div class="card" onclick="openChar('images/spina.webp','Спина','Спина на дрожжах')">
 <img src="images/spina.webp">
 <div class="name">Спина</div>
 </div>
 
-<div class="card"
-onclick="openChar(
-'images/trap.webp',
-'Трап',
-'Аим как у его батька когда пытается пьяным протиснуться в дверь'
-)">
+<div class="card" onclick="openChar('images/trap.webp','Трап','Аим как у его батька когда пытается пьяным протиснуться в дверь')">
 <img src="images/trap.webp">
 <div class="name">Трап</div>
 </div>
 
-<div class="card"
-onclick="openChar(
-'images/nolife.webp',
-'Не живет, а выживает',
-'Часто пиздят родители кулаками'
-)">
+<div class="card" onclick="openChar('images/nolife.webp','Не живет, а выживает','Часто пиздят родители кулаками')">
 <img src="images/nolife.webp">
 <div class="name">Не живет, а выживает</div>
 </div>
 
-<div class="card"
-onclick="openChar(
-'images/patriarx.webp',
-'Патриарх',
-'Патриарх Кирилл'
-)">
+<div class="card" onclick="openChar('images/patriarx.webp','Патриарх','Патриарх Кирилл')">
 <img src="images/patriarx.webp">
 <div class="name">Патриарх</div>
 </div>
 
-<div class="card"
-onclick="openChar(
-'images/ebar.webp',
-'Ебарь',
-'Обычно зоофил'
-)">
+<div class="card" onclick="openChar('images/ebar.webp','Ебарь','Обычно зоофил')">
 <img src="images/ebar.webp">
 <div class="name">Ебарь</div>
 </div>
 
-<div class="card"
-onclick="openChar(
-'images/epstein.webp',
-'Альберт Эпштейн',
-'Не тот у кого есть остров'
-)">
+<div class="card" onclick="openChar('images/epstein.webp','Альберт Эпштейн','Не тот у кого есть остров')">
 <img src="images/epstein.webp">
 <div class="name">Альберт Эпштейн</div>
 </div>
 
-<div class="card"
-onclick="openChar(
-'images/svin.webp',
-'Свин',
-'Свин'
-)">
+<div class="card" onclick="openChar('images/svin.webp','Свин','Свин')">
 <img src="images/svin.webp">
 <div class="name">Свин</div>
 </div>
 
-<div class="card"
-onclick="openChar(
-'images/legioner.webp',
-'Легионер',
-'Скучный чел'
-)">
+<div class="card" onclick="openChar('images/legioner.webp','Легионер','Скучный чел')">
 <img src="images/legioner.webp">
 <div class="name">Легионер</div>
 </div>
 
-<div class="card"
-onclick="openChar(
-'images/derevnya.webp',
-'Деревня',
-'Село'
-)">
+<div class="card" onclick="openChar('images/derevnya.webp','Деревня','Село')">
 <img src="images/derevnya.webp">
 <div class="name">Деревня</div>
 </div>
 
-<div class="card"
-onclick="openChar(
-'images/oni.webp',
-'Они́',
-'Сосёт кровь'
-)">
+<div class="card" onclick="openChar('images/oni.webp','Они́','Сосёт кровь')">
 <img src="images/oni.webp">
 <div class="name">Они́</div>
 </div>
 
-<div class="card"
-onclick="openChar(
-'images/kseno.webp',
-'Ксено',
-'Милый пес, но не всегда'
-)">
+<div class="card" onclick="openChar('images/kseno.webp','Ксено','Милый пес, но не всегда')">
 <img src="images/kseno.webp">
 <div class="name">Ксено</div>
 </div>
 
-<div class="card"
-onclick="openChar(
-'images/dimacarbon.webp',
-'Димакарбон',
-'Дмитрий'
-)">
+<div class="card" onclick="openChar('images/dimacarbon.webp','Димакарбон','Дмитрий')">
 <img src="images/dimacarbon.webp">
 <div class="name">Димакарбон</div>
 </div>
 
+<div class="card" onclick="openChar('images/yablonskiy.webp','Яблонский','Пьянь лысая')">
+<img src="images/yablonskiy.webp">
+<div class="name">Яблонский</div>
+</div>
 </div>
 
+<!-- ЖИВЫЕ -->
+<div class="gallery" id="survivors" style="display:none;">
 
+<div class="card" onclick="openChar('surv/sableliar.webp','Дуайт','При выборе падает iq')">
+<img src="surv/sableliar.webp">
+<div class="name">Сейблярность</div>
+</div>
+
+<div class="card" onclick="openChar('surv/alisher.webp','Алишер Бэйков','Пиджак')">
+<img src="surv/alisher.webp">
+<div class="name">Алишер Бэйков</div>
+</div>
+
+<div class="card" onclick="openChar('surv/leonsuka.webp','Леон Сука Кенеди','Сбежал из Ракун сити от мамы (мать мутант)')">
+<img src="surv/leonsuka.webp">
+<div class="name">Леон Сука Кенеди</div>
+</div>
+
+<div class="card" onclick="openChar('surv/klodett.webp','Клодэт','Или Клодэттка')">
+<img src="surv/klodett.webp">
+<div class="name">Клодэт</div>
+</div>
+
+</div>
 
 <!-- ОКНО -->
-
 <div class="modal" id="modal">
-
 <div class="modal-content">
-
 <h2 id="charName"></h2>
-
 <img id="charImg">
-
 <p id="charInfo"></p>
-
 <div class="close" onclick="closeChar()">Закрыть</div>
-
 </div>
-
 </div>
-
-
 
 <script>
 
 function openChar(img, name, info)
 {
     document.getElementById("modal").style.display = "flex";
-
     document.getElementById("charImg").src = img;
     document.getElementById("charName").innerText = name;
     document.getElementById("charInfo").innerText = info;
@@ -275,8 +242,14 @@ function closeChar()
     document.getElementById("modal").style.display = "none";
 }
 
-</script>
+function showTab(tab)
+{
+    document.getElementById("killers").style.display = "none";
+    document.getElementById("survivors").style.display = "none";
+    document.getElementById(tab).style.display = "grid";
+}
 
+</script>
 
 </body>
 </html>
