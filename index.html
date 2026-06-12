@@ -2,8 +2,8 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>Те кого стоит знать</title>
-
+<title>ДБД</title>
+<link rel="icon" type="image/webp" href="logo.webp">
 <style>
 
 body {
@@ -116,6 +116,8 @@ img {
 <div class="tabs">
     <button onclick="showTab('killers')">Маны</button>
     <button onclick="showTab('survivors')">Живые</button>
+    <button onclick="showTab('skins_surv')">Скины живых</button>
+    <button onclick="showTab('skins_man')">Скины манов</button>
 </div>
 
 <!-- МАНЫ -->
@@ -279,6 +281,31 @@ img {
 
 </div>
 
+<!-- СКИНЫ МАН -->
+<div class="gallery" id="skins_man" style="display:none;">
+
+<div class="card" onclick="openChar('skins_man/moriak.webp','Моряк ебаклак','Не попадает в окна')">
+<img src="skins_man/moriak.webp">
+<div class="name">Моряк ебаклак</div>
+</div>
+
+<div class="card" onclick="openChar('skins_man/pyps.webp','Пупс','Бегает как пупс и вообще он пупс')">
+<img src="skins_man/pyps.webp">
+<div class="name">Пупс</div>
+</div>
+
+</div>
+
+<!-- СКИНЫ СУРВ -->
+<!-- <div class="gallery" id="skins_surv" style="display:none;">
+
+<div class="card" onclick="openChar('skins_surv/payk.webp','Пауки','Пауки')">
+<img src="skins_surv/payk.webp">
+<div class="name">Пауки</div>
+</div> 
+
+</div> -->
+
 <!-- ОКНО -->
 <div class="modal" id="modal">
 <div class="modal-content">
@@ -306,9 +333,20 @@ function closeChar()
 
 function showTab(tab)
 {
-    document.getElementById("killers").style.display = "none";
-    document.getElementById("survivors").style.display = "none";
-    document.getElementById(tab).style.display = "grid";
+    const tabs = [
+        "killers",
+        "survivors",
+        "skins_surv",
+        "skins_man"
+    ];
+
+    tabs.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = "none";
+    });
+
+    const selected = document.getElementById(tab);
+    if (selected) selected.style.display = "grid";
 }
 
 </script>
